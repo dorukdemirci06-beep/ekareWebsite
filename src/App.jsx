@@ -49,25 +49,20 @@ function App() {
 
   return (
     <div className="min-h-screen">
-      {/* Top Banner */}
-      <div className="w-full relative h-10 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
-        <div className="absolute inset-0 bg-stone-900/50"></div>
-        <div className="relative z-10 text-[#fdfbf7] text-sm md:text-base font-semibold tracking-widest uppercase">
-          YENİ SEZONDA SİZLERLEYİZ! ✨
-        </div>
-      </div>
-
       {/* Header */}
-      <header className="border-b border-stone-200 bg-white/50 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <header className="relative border-b border-stone-200 sticky top-0 z-50 overflow-hidden shadow-sm shadow-amber-900/5">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-md"></div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <span className="text-2xl font-bold text-amber-900 tracking-tight">Ekare Sanat Akademi</span>
           </div>
-          <nav className="hidden md:flex gap-6 text-stone-600 font-medium">
-            <a href="#hero" className="hover:text-amber-800 transition">Ana Sayfa</a>
-            <a href="#programs" className="hover:text-amber-800 transition">Eğitimler</a>
-            <a href="#register" className="hover:text-amber-800 transition">Ön Kayıt</a>
+          <nav className="hidden md:flex gap-6 text-stone-800 font-medium">
+            <a href="#hero" className="hover:text-amber-900 transition">Ana Sayfa</a>
+            <a href="#programs" className="hover:text-amber-900 transition">Eğitimler</a>
+            <a href="#register" className="hover:text-amber-900 transition">Ön Kayıt</a>
           </nav>
         </div>
       </header>
