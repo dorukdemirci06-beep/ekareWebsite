@@ -62,8 +62,7 @@ function App() {
       <header className="border-b border-stone-200 bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src="/images/EKARE SANAT.jpg" alt="Ekare Sanat Akademi" className="h-12 w-auto object-contain rounded" />
-            <span className="text-2xl font-bold text-amber-900 tracking-tight hidden sm:block">Ekare Sanat Akademi</span>
+            <span className="text-2xl font-bold text-amber-900 tracking-tight">Ekare Sanat Akademi</span>
           </div>
           <nav className="hidden md:flex gap-6 text-stone-600 font-medium">
             <a href="#hero" className="hover:text-amber-800 transition">Ana Sayfa</a>
