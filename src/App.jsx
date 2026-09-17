@@ -57,7 +57,7 @@ function App() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-5 flex items-center justify-center md:justify-between min-h-[80px]">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none">
-            <span className="text-3xl md:text-4xl font-extrabold text-[#fdfbf7] tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Ekare Sanat Akademi</span>
+            <span className="font-lora text-3xl md:text-4xl font-extrabold text-[#fdfbf7] tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Ekare Sanat Akademi</span>
           </div>
           <div className="hidden md:block flex-1"></div> {/* Spacer to push nav to right */}
           <nav className="hidden md:flex gap-8 text-stone-900 font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] relative z-20 ml-auto">
