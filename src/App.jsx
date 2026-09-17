@@ -36,8 +36,8 @@ function App() {
       message = `Merhabalar, ben ${studentName} ${studentSurname}, ${branch} dersiniz hakkında bilgi alabilir miyim?`;
     }
 
-    // Lütfen akademinin WhatsApp numarasını buraya ülke koduyla girin (Örn: 905321234567)
-    const academyPhone = '905000000000'; 
+    // Akademinin WhatsApp numarası (Ülke kodu ile, artısız ve boşluksuz)
+    const academyPhone = '905447111405'; 
     const whatsappUrl = `https://wa.me/${academyPhone}?text=${encodeURIComponent(message)}`;
     
     // WhatsApp'ı yeni sekmede aç
