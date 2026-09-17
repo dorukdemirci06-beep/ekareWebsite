@@ -68,7 +68,7 @@ function App() {
           <nav className="hidden md:flex gap-8 text-stone-900 font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] relative z-20 ml-auto">
             <a href="#hero" className="hover:text-amber-900 transition">Ana Sayfa</a>
             <a href="#programs" className="hover:text-amber-900 transition">Eğitimler</a>
-            <a href="#register" className="hover:text-amber-900 transition">Ön Kayıt</a>
+            <a href="#register" className="hover:text-amber-900 transition flex items-center gap-2">Bilgi Al</a>
           </nav>
         </div>
       </header>
@@ -123,17 +123,19 @@ function App() {
       </section>
 
       {/* Registration Form Section */}
-      <section id="register" className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
+      <section id="register" className="py-16 md:py-24 px-6 bg-stone-100">
+        <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl shadow-xl shadow-stone-200/50 p-8 md:p-12 border border-stone-100">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-amber-900 mb-3">Ön Kayıt Formu</h2>
-              <p className="text-stone-500">Geleceğin sanatçıları ve dansçıları için ilk adımı atın.</p>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-amber-900 mb-6 font-lora">WhatsApp'tan Bilgi Alın</h2>
+              <p className="text-stone-600 max-w-2xl mx-auto text-lg">
+                Eğitimlerimiz hakkında detaylı bilgi almak için aşağıdaki formu doldurmanız yeterli. Sizi hemen WhatsApp hattımıza yönlendireceğiz.
+              </p>
             </div>
 
             {status === 'success' && (
               <div className="mb-8 p-4 bg-green-50 text-green-800 rounded-xl border border-green-200 text-center">
-                Tebrikler! Ön kayıt başvurunuz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.
+                WhatsApp üzerinden bilgi almak için yönlendiriliyorsunuz...
               </div>
             )}
 
@@ -183,8 +185,15 @@ function App() {
                 </label>
               </div>
 
-              <button type="submit" disabled={status === 'loading'} className="w-full bg-amber-800 text-white py-4 rounded-xl font-semibold text-lg hover:bg-amber-900 transition disabled:opacity-70 mt-4">
-                {status === 'loading' ? 'Gönderiliyor...' : 'Ön Kayıt Başvurusunu Tamamla'}
+              <button 
+                type="submit" 
+                disabled={status === 'loading'}
+                className="w-full bg-[#25D366] text-white py-4 rounded-xl text-lg font-bold hover:bg-[#128C7E] transition shadow-lg shadow-[#25D366]/20 disabled:opacity-70 disabled:cursor-not-allowed mt-4 flex items-center justify-center gap-3"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+                {status === 'loading' ? 'Yönlendiriliyor...' : 'WhatsApp\'tan Bilgi Al'}
               </button>
             </form>
           </div>
