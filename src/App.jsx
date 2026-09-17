@@ -82,8 +82,12 @@ function App() {
               Hemen Başvurun
             </a>
           </div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-stone-300 flex items-center justify-center bg-white">
-             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="w-full h-auto max-h-[600px] object-contain"></video>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-stone-300 flex items-center justify-center bg-stone-100 min-h-[400px]">
+             {/* Ambient Blurred Background */}
+             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-60 scale-125"></video>
+             
+             {/* Main Video */}
+             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="relative z-10 w-full h-auto max-h-[600px] object-contain drop-shadow-2xl"></video>
           </div>
         </div>
       </section>
