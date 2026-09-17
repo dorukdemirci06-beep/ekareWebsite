@@ -52,8 +52,8 @@ function App() {
       {/* Header */}
       <header className="relative border-b border-stone-200 sticky top-0 z-50 overflow-hidden shadow-sm shadow-amber-900/5">
         {/* Background Image & Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-md"></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
