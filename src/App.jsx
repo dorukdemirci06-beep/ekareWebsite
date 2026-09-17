@@ -83,7 +83,7 @@ function App() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl shadow-stone-300"></video>
+             <img src="/images/Art studio.jpg" alt="Art Studio" className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl shadow-stone-300" />
           </div>
         </div>
       </section>
