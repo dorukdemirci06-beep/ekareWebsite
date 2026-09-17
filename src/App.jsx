@@ -49,6 +49,15 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      {/* Top Banner */}
+      <div className="w-full relative h-10 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
+        <div className="absolute inset-0 bg-stone-900/50"></div>
+        <div className="relative z-10 text-[#fdfbf7] text-sm md:text-base font-semibold tracking-widest uppercase">
+          YENİ SEZONDA SİZLERLEYİZ! ✨
+        </div>
+      </div>
+
       {/* Header */}
       <header className="border-b border-stone-200 bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
