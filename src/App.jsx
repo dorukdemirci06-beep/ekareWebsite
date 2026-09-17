@@ -6,7 +6,6 @@ function App() {
     studentSurname: '',
     parentName: '',
     parentSurname: '',
-    phone: '',
     branch: '',
     kvkk: false,
     whatsapp: false
@@ -21,30 +20,36 @@ function App() {
     }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setStatus('loading')
     
-    try {
-      const response = await fetch('/on-kayitlar/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({
-          studentName: '', studentSurname: '', parentName: '', parentSurname: '', phone: '', branch: '', kvkk: false, whatsapp: false
-        })
-      } else {
-        setStatus('error')
-      }
-    } catch (error) {
-      setStatus('error')
+    let message = '';
+    const { studentName, studentSurname, parentName, parentSurname, branch } = formData;
+    
+    // Veli bilgisi girilmişse
+    if (parentName || parentSurname) {
+      const pName = parentName || '';
+      const pSurname = parentSurname || '';
+      message = `Merhabalar, ben ${pName} ${pSurname}, öğrencim ${studentName} ${studentSurname} için ${branch} dersleri hakkında bilgi almak istiyorum.`;
+    } else {
+      // Sadece öğrenci bilgisi girilmişse
+      message = `Merhabalar, ben ${studentName} ${studentSurname}, ${branch} dersiniz hakkında bilgi alabilir miyim?`;
     }
+
+    // Lütfen akademinin WhatsApp numarasını buraya ülke koduyla girin (Örn: 905321234567)
+    const academyPhone = '905000000000'; 
+    const whatsappUrl = `https://wa.me/${academyPhone}?text=${encodeURIComponent(message)}`;
+    
+    // WhatsApp'ı yeni sekmede aç
+    window.open(whatsappUrl, '_blank');
+    
+    setStatus('success')
+    setFormData({ studentName: '', studentSurname: '', parentName: '', parentSurname: '', branch: '', kvkk: false, whatsapp: false })
+    
+    // 5 saniye sonra formu normal haline döndür
+    setTimeout(() => {
+      setStatus('idle')
+    }, 5000)
   }
 
   return (
@@ -54,7 +59,7 @@ function App() {
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
         <div className="absolute inset-0 bg-white/10"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-5 flex items-center justify-center md:justify-between min-h-[80px]">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none">
             <span className="font-lora text-3xl md:text-4xl font-extrabold text-[#fdfbf7] tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Ekare Sanat Akademi</span>
@@ -73,7 +78,7 @@ function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-amber-900 leading-tight">
-              Sanatın ve Ritmin <br className="hidden lg:block"/> Zarafetini Keşfedin
+              Dans <br className="hidden lg:block" /> Müzik <br className="hidden lg:block" /> Bale
             </h1>
             <p className="text-lg md:text-xl text-stone-600 mb-10 leading-relaxed">
               Ekare Sanat Akademi'nin samimi ve davetkar atmosferinde, bedeninizin ve ruhunuzun özgürce ifade bulduğu bir yolculuğa çıkın.
@@ -83,7 +88,7 @@ function App() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-             <img src="/images/Art studio.jpg" alt="Art Studio" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
+            <img src="/images/Art studio.jpg" alt="Art Studio" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
           </div>
         </div>
       </section>
@@ -95,7 +100,7 @@ function App() {
             <h2 className="text-4xl font-bold text-amber-900 mb-4">Eğitimlerimiz</h2>
             <p className="text-stone-600 max-w-2xl mx-auto">Tutkunuzu profesyonel eğitmenler eşliğinde hayata geçirin.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { title: 'Sportif Latin', desc: 'Dinamik, enerjik ve rekabetçi ruhunuzu sahneye taşıyın.', img: '/images/bale.jpg' },
@@ -131,7 +136,7 @@ function App() {
                 Tebrikler! Ön kayıt başvurunuz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.
               </div>
             )}
-            
+
             {status === 'error' && (
               <div className="mb-8 p-4 bg-red-50 text-red-800 rounded-xl border border-red-200 text-center">
                 İşlem sırasında bir hata oluştu. Lütfen tekrar deneyin.
@@ -149,21 +154,14 @@ function App() {
                   <input required type="text" name="studentSurname" value={formData.studentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-stone-700 mb-2">Veli Adı *</label>
-                  <input required type="text" name="parentName" value={formData.parentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
+                  <label className="block text-sm font-medium text-stone-700 mb-2">Veli Adı (İsteğe Bağlı)</label>
+                  <input type="text" name="parentName" value={formData.parentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-stone-700 mb-2">Veli Soyadı *</label>
-                  <input required type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
+                  <label className="block text-sm font-medium text-stone-700 mb-2">Veli Soyadı (İsteğe Bağlı)</label>
+                  <input type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
                 </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-stone-700 mb-2">Telefon Numarası *</label>
-                  <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="05XX XXX XX XX" className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
-                </div>
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-stone-700 mb-2">İlgilenilen Branş *</label>
                   <input required type="text" name="branch" value={formData.branch} onChange={handleInputChange} placeholder="Örn: Sportif Latin, Şan Dersi..." className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
                 </div>
@@ -176,7 +174,7 @@ function App() {
                     <span className="text-amber-900 font-medium underline">KVKK Aydınlatma Metni</span>'ni okudum, anladım ve kişisel verilerimin işlenmesini kabul ediyorum. *
                   </span>
                 </label>
-                
+
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input required type="checkbox" name="whatsapp" checked={formData.whatsapp} onChange={handleInputChange} className="mt-1 w-5 h-5 rounded border-stone-300 text-amber-800 focus:ring-amber-800" />
                   <span className="text-sm text-stone-600">
@@ -192,7 +190,7 @@ function App() {
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-400 py-12 text-center border-t border-stone-800">
         <p>© 2026 Ekare Sanat Akademi. Tüm hakları saklıdır.</p>
