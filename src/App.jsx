@@ -52,8 +52,9 @@ function App() {
       {/* Header */}
       <header className="border-b border-stone-200 bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-amber-900 tracking-tight">
-            Ekare Sanat Akademi
+          <div className="flex items-center gap-3">
+            <img src="/images/EKARE SANAT.jpg" alt="Ekare Sanat Akademi" className="h-12 w-auto object-contain rounded" />
+            <span className="text-2xl font-bold text-amber-900 tracking-tight hidden sm:block">Ekare Sanat Akademi</span>
           </div>
           <nav className="hidden md:flex gap-6 text-stone-600 font-medium">
             <a href="#hero" className="hover:text-amber-800 transition">Ana Sayfa</a>
@@ -64,17 +65,22 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="py-24 px-6 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-amber-900 leading-tight">
-            Sanatın ve Ritmin <br className="hidden md:block"/> Zarafetini Keşfedin
-          </h1>
-          <p className="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Ekare Sanat Akademi'nin samimi ve davetkar atmosferinde, bedeninizin ve ruhunuzun özgürce ifade bulduğu bir yolculuğa çıkın.
-          </p>
-          <a href="#register" className="inline-block bg-amber-800 text-[#fdfbf7] px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
-            Hemen Başvurun
-          </a>
+      <section id="hero" className="py-16 md:py-24 px-6 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-amber-900 leading-tight">
+              Sanatın ve Ritmin <br className="hidden lg:block"/> Zarafetini Keşfedin
+            </h1>
+            <p className="text-lg md:text-xl text-stone-600 mb-10 leading-relaxed">
+              Ekare Sanat Akademi'nin samimi ve davetkar atmosferinde, bedeninizin ve ruhunuzun özgürce ifade bulduğu bir yolculuğa çıkın.
+            </p>
+            <a href="#register" className="inline-block bg-amber-800 text-[#fdfbf7] px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
+              Hemen Başvurun
+            </a>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-stone-300">
+             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="w-full h-full object-cover aspect-video md:aspect-[4/3]"></video>
+          </div>
         </div>
       </section>
 
@@ -88,14 +94,19 @@ function App() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: 'Sportif Latin', desc: 'Dinamik, enerjik ve rekabetçi ruhunuzu sahneye taşıyın.' },
-              { title: 'Bachata', desc: 'Duygusal ritimler eşliğinde partnerinizle uyumu yakalayın.' },
-              { title: 'Salsa', desc: 'Küba esintileriyle dolu, coşkulu ve hareketli dansın keyfini çıkarın.' },
-              { title: 'Birebir Müzik', desc: 'Enstrüman veya şan eğitiminde tamamen size özel hazırlanmış programlar.' }
+              { title: 'Sportif Latin', desc: 'Dinamik, enerjik ve rekabetçi ruhunuzu sahneye taşıyın.', img: '/images/bale.jpg' },
+              { title: 'Bachata', desc: 'Duygusal ritimler eşliğinde partnerinizle uyumu yakalayın.', img: '/images/dans sınıfı.jpg' },
+              { title: 'Salsa', desc: 'Küba esintileriyle dolu, coşkulu ve hareketli dansın keyfini çıkarın.', img: '/images/27.jpg' },
+              { title: 'Birebir Müzik', desc: 'Enstrüman veya şan eğitiminde tamamen size özel hazırlanmış programlar.', img: '/images/33.jpg' }
             ].map((program, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition group">
-                <h3 className="text-2xl font-bold text-amber-800 mb-3 group-hover:text-amber-900">{program.title}</h3>
-                <p className="text-stone-600 leading-relaxed">{program.desc}</p>
+              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group">
+                <div className="h-48 overflow-hidden relative">
+                  <img src={program.img} alt={program.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-amber-800 mb-3 group-hover:text-amber-900">{program.title}</h3>
+                  <p className="text-stone-600 leading-relaxed">{program.desc}</p>
+                </div>
               </div>
             ))}
           </div>
