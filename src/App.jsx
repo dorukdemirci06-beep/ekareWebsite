@@ -200,6 +200,28 @@ function App() {
         </div>
       </section>
 
+      {/* Map Section */}
+      <section className="py-12 md:py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-amber-900 mb-4 font-lora">Bizi Ziyaret Edin</h2>
+            <p className="text-stone-600">Akademimizin sanatsal atmosferini yakından görmek için sizi her zaman bekleriz.</p>
+          </div>
+          <div className="rounded-3xl overflow-hidden shadow-xl shadow-stone-200/50 border border-stone-100">
+            <iframe 
+              src="https://www.google.com/maps?q=Ekare+Sanat+Akademi&output=embed" 
+              width="100%" 
+              height="450" 
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ekare Sanat Akademi Konumu"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-400 py-12 text-center border-t border-stone-800">
         <p>© 2026 Ekare Sanat Akademi. Tüm hakları saklıdır.</p>
