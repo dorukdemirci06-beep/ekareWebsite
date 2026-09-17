@@ -83,7 +83,7 @@ function App() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-             <img src="/images/Art studio.jpg" alt="Art Studio" className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl shadow-stone-300" />
+             <img src="/images/Art studio.jpg" alt="Art Studio" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
           </div>
         </div>
       </section>
