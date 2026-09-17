@@ -82,8 +82,8 @@ function App() {
               Hemen Başvurun
             </a>
           </div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-stone-300 flex items-center justify-center bg-white">
-             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="w-full h-auto max-h-[600px] object-contain"></video>
+          <div className="relative flex items-center justify-center">
+             <video src="/images/doruk demlikçi (1).mp4" autoPlay loop muted playsInline className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl shadow-stone-300"></video>
           </div>
         </div>
       </section>
