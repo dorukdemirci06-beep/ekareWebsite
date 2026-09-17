@@ -52,14 +52,15 @@ function App() {
       {/* Header */}
       <header className="relative border-b border-stone-200 sticky top-0 z-50 overflow-hidden shadow-sm shadow-amber-900/5">
         {/* Background Image & Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
+        <div className="absolute inset-0 bg-white/10"></div>
         
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl font-bold text-amber-900 tracking-tight">Ekare Sanat Akademi</span>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-5 flex items-center justify-center md:justify-between min-h-[80px]">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none">
+            <span className="text-3xl md:text-4xl font-extrabold text-[#fdfbf7] tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Ekare Sanat Akademi</span>
           </div>
-          <nav className="hidden md:flex gap-6 text-stone-800 font-medium">
+          <div className="hidden md:block flex-1"></div> {/* Spacer to push nav to right */}
+          <nav className="hidden md:flex gap-8 text-stone-900 font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] relative z-20 ml-auto">
             <a href="#hero" className="hover:text-amber-900 transition">Ana Sayfa</a>
             <a href="#programs" className="hover:text-amber-900 transition">Eğitimler</a>
             <a href="#register" className="hover:text-amber-900 transition">Ön Kayıt</a>
@@ -102,11 +103,11 @@ function App() {
               { title: 'Salsa', desc: 'Küba esintileriyle dolu, coşkulu ve hareketli dansın keyfini çıkarın.', img: '/images/27.jpg' },
               { title: 'Birebir Müzik', desc: 'Enstrüman veya şan eğitiminde tamamen size özel hazırlanmış programlar.', img: '/images/33.jpg' }
             ].map((program, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group">
-                <div className="h-48 overflow-hidden relative">
-                  <img src={program.img} alt={program.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group flex flex-col">
+                <div className="w-full relative bg-stone-50 overflow-hidden">
+                  <img src={program.img} alt={program.title} className="w-full h-auto object-contain max-h-[350px] group-hover:scale-105 transition duration-500" />
                 </div>
-                <div className="p-6 md:p-8">
+                <div className="p-6 md:p-8 flex-1">
                   <h3 className="text-2xl font-bold text-amber-800 mb-3 group-hover:text-amber-900">{program.title}</h3>
                   <p className="text-stone-600 leading-relaxed">{program.desc}</p>
                 </div>
