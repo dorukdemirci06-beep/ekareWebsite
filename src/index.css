@@ -1,7 +1,19 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap');
+
+.font-signature {
+  font-family: 'Dancing Script', cursive;
+}
 
 body {
   font-family: 'Nunito', sans-serif;
+  user-select: none;
+  cursor: default;
+}
+
+input, textarea {
+  user-select: auto;
+  cursor: text;
 }
 
 h1, h2, h3, h4, h5, h6, .font-lora {
