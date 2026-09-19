@@ -174,7 +174,7 @@ function App() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-            <img src="/images/yeni_sezonda.webp" alt="Ekare Sanat Akademi Yeni Sezon Kayıtları - Ankara Dans ve Müzik Kursu" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
+            <img src="/images/yeni_sezonda.webp" alt="Ekare Sanat Akademi Yeni Sezon Kayıtları - İstanbul Maltepe Cevizli Dans ve Müzik Kursu" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
           </div>
         </div>
       </section>
@@ -189,14 +189,14 @@ function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: 'Bale', altText: 'Ankara Bale Kursu Eğitimi - Ekare Sanat', desc: 'Zarafeti, esnekliği ve klasik müziğin ritmini bedeninizde hissedin.', img: '/images/bale.webp' },
-              { title: 'Salsa & Bachata', altText: 'Ankara Salsa ve Bachata Dans Kursu', desc: 'Küba esintileri ve duygusal ritimlerle partnerli dansın keyfini çıkarın.', img: '/images/salsa_bachata.webp' },
-              { title: 'K-Pop', altText: 'Ankara K-Pop Dans Kursu ve Eğitimi', desc: 'En sevdiğiniz K-Pop idollerinin enerjik ve popüler koreografilerini öğrenin.', img: '/images/kpop.webp' },
-              { title: 'Hip Hop', altText: 'Ankara Hip Hop Dans Kursu', desc: 'Sokağın ritmini hissedin, özgür koreografilerle bedeninizi müziğe bırakın.', img: '/images/hiphop.webp' },
-              { title: 'Piyano', altText: 'Ankara Piyano Dersi ve Eğitimi - Ekare Sanat', desc: 'Piyano derslerimizle müziğin temelini atın ve tuşların büyüsünü keşfedin.', img: '/images/piyano.webp' },
-              { title: 'Keman', altText: 'Ankara Keman Dersi ve Eğitimi', desc: 'Kemanın zarif ve duygusal tınısıyla kendi melodilerinizi yaratın.', img: '/images/keman.webp' },
-              { title: 'Gitar', altText: 'Ankara Gitar Dersi - Akustik, Klasik, Elektro', desc: 'Akustik, klasik veya elektro; gitarın ritmini kendi tarzınızla yakalayın.', img: '/images/gitar.webp' },
-              { title: 'Şan Dersi', altText: 'Ankara Şan Dersi ve Ses Eğitimi Kursu', desc: 'Sesinizi profesyonelce kullanmayı öğrenin ve şarkı söylemenin keyfine varın.', img: '/images/san.webp' }
+              { title: 'Bale', altText: 'Maltepe Cevizli Bale Kursu Eğitimi - Ekare Sanat', desc: 'Zarafeti, esnekliği ve klasik müziğin ritmini bedeninizde hissedin.', img: '/images/bale.webp' },
+              { title: 'Salsa & Bachata', altText: 'Maltepe Cevizli Salsa ve Bachata Dans Kursu', desc: 'Küba esintileri ve duygusal ritimlerle partnerli dansın keyfini çıkarın.', img: '/images/salsa_bachata.webp' },
+              { title: 'K-Pop', altText: 'Maltepe Cevizli K-Pop Dans Kursu ve Eğitimi', desc: 'En sevdiğiniz K-Pop idollerinin enerjik ve popüler koreografilerini öğrenin.', img: '/images/kpop.webp' },
+              { title: 'Hip Hop', altText: 'Maltepe Cevizli Hip Hop Dans Kursu', desc: 'Sokağın ritmini hissedin, özgür koreografilerle bedeninizi müziğe bırakın.', img: '/images/hiphop.webp' },
+              { title: 'Piyano', altText: 'Maltepe Cevizli Piyano Dersi ve Eğitimi - Ekare Sanat', desc: 'Piyano derslerimizle müziğin temelini atın ve tuşların büyüsünü keşfedin.', img: '/images/piyano.webp' },
+              { title: 'Keman', altText: 'Maltepe Cevizli Keman Dersi ve Eğitimi', desc: 'Kemanın zarif ve duygusal tınısıyla kendi melodilerinizi yaratın.', img: '/images/keman.webp' },
+              { title: 'Gitar', altText: 'Maltepe Cevizli Gitar Dersi - Akustik, Klasik, Elektro', desc: 'Akustik, klasik veya elektro; gitarın ritmini kendi tarzınızla yakalayın.', img: '/images/gitar.webp' },
+              { title: 'Şan Dersi', altText: 'Maltepe Cevizli Şan Dersi ve Ses Eğitimi Kursu', desc: 'Sesinizi profesyonelce kullanmayı öğrenin ve şarkı söylemenin keyfine varın.', img: '/images/san.webp' }
             ].map((program, idx) => (
               <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group flex flex-col">
                 <div className="w-full relative bg-stone-50 overflow-hidden">
