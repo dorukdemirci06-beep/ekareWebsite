@@ -191,11 +191,11 @@ function App() {
             {[
               { title: 'Bale', desc: 'Zarafeti, esnekliği ve klasik müziğin ritmini bedeninizde hissedin.', img: '/images/bale.webp' },
               { title: 'Salsa & Bachata', desc: 'Küba esintileri ve duygusal ritimlerle partnerli dansın keyfini çıkarın.', img: '/images/salsa_bachata.webp' },
-              { title: 'K-Pop', desc: 'En sevdiğiniz K-Pop idollerinin enerjik ve popüler koreografilerini öğrenin.', img: '/images/kpop.webp' },
-              { title: 'Hip Hop', desc: 'Sokağın ritmini hissedin, özgür koreografilerle bedeninizi müziğe bırakın.', img: '/images/hiphop.webp' },
-              { title: 'Piyano', desc: 'Piyano derslerimizle müziğin temelini atın ve tuşların büyüsünü keşfedin.', img: '/images/piyano.webp' },
-              { title: 'Keman', desc: 'Kemanın zarif ve duygusal tınısıyla kendi melodilerinizi yaratın.', img: '/images/keman.webp' },
-              { title: 'Gitar', desc: 'Akustik, klasik veya elektro; gitarın ritmini kendi tarzınızla yakalayın.', img: '/images/gitar.webp' },
+              { title: 'K-Pop', desc: 'En sevdiğiniz K-Pop idollerinin enerjik ve popüler koreografilerini öğrenin.', img: '/images/KPOP.webp' },
+              { title: 'Hip Hop', desc: 'Sokağın ritmini hissedin, özgür koreografilerle bedeninizi müziğe bırakın.', img: '/images/Hiphop.webp' },
+              { title: 'Piyano', desc: 'Piyano derslerimizle müziğin temelini atın ve tuşların büyüsünü keşfedin.', img: '/images/Piyano.webp' },
+              { title: 'Keman', desc: 'Kemanın zarif ve duygusal tınısıyla kendi melodilerinizi yaratın.', img: '/images/Keman.webp' },
+              { title: 'Gitar', desc: 'Akustik, klasik veya elektro; gitarın ritmini kendi tarzınızla yakalayın.', img: '/images/Gitar.webp' },
               { title: 'Şan Dersi', desc: 'Sesinizi profesyonelce kullanmayı öğrenin ve şarkı söylemenin keyfine varın.', img: '/images/san.webp' }
             ].map((program, idx) => (
               <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group flex flex-col">
