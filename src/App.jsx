@@ -118,7 +118,7 @@ function App() {
       {/* Header */}
       <header className="relative border-b border-stone-200 sticky top-0 z-50 shadow-sm shadow-amber-900/5">
         {/* Background Image & Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/images/yeni_sezon_banner.jpg')" }}></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/images/banner.webp')" }}></div>
         <div className="absolute inset-0 bg-white/10"></div>
 
         <div className="relative z-10 w-full px-6 md:px-12 py-5 flex items-center justify-between min-h-[80px]">
@@ -174,7 +174,7 @@ function App() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-            <img src="/images/yeni_sezon_banner.webp" alt="Yeni Sezon" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
+            <img src="/images/Yeni sezonda.jpg" alt="Yeni Sezon" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
           </div>
         </div>
       </section>
