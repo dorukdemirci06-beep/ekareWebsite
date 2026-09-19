@@ -121,7 +121,7 @@ function App() {
         <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/images/banner.webp')" }}></div>
         <div className="absolute inset-0 bg-white/10"></div>
 
-        <div className="relative z-10 w-full px-6 md:px-12 py-5 flex items-center justify-between min-h-[80px]">
+        <div className="relative z-10 w-full px-4 md:px-12 py-3 md:py-5 flex items-center justify-between min-h-[60px] md:min-h-[80px]">
           {/* Hamburger Menu (Left) */}
           <div ref={menuRef} className="z-30 flex-1 flex justify-start relative">
             <button
@@ -148,9 +148,9 @@ function App() {
 
           {/* Title (Center) */}
           <div className="z-20 flex-[2] flex justify-center text-center">
-            <div className="relative inline-block mt-2 mb-3">
-              <span className="font-lora text-3xl md:text-4xl font-extrabold text-amber-950 tracking-wider drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)] cursor-default select-none">Ekare Sanat Akademi</span>
-              <span className="font-signature absolute -bottom-5 -right-4 md:-right-8 text-xl md:text-2xl text-amber-800 rotate-[-8deg] drop-shadow-sm select-none cursor-default whitespace-nowrap opacity-90">By Eylül Kuşoğlu</span>
+            <div className="relative inline-block mt-1 mb-2 md:mt-2 md:mb-3">
+              <span className="font-lora text-2xl sm:text-3xl md:text-4xl font-extrabold text-amber-950 tracking-wider drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)] cursor-default select-none">Ekare Sanat Akademi</span>
+              <span className="font-signature absolute -bottom-4 -right-0 sm:-bottom-5 sm:-right-4 md:-right-8 text-lg sm:text-xl md:text-2xl text-amber-800 rotate-[-8deg] drop-shadow-sm select-none cursor-default whitespace-nowrap opacity-90">By Eylül Kuşoğlu</span>
             </div>
           </div>
 
