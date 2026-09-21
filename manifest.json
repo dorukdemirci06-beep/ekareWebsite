@@ -1,0 +1,16 @@
+{
+  "name": "Ekare Sanat Akademi",
+  "short_name": "Ekare Sanat Akademi",
+  "description": "Ekare Sanat Akademi'de profesyonel eğitmenler eşliğinde Dans, Müzik ve Bale eğitimleri.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ]
+}
