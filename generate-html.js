@@ -68,6 +68,7 @@ const template = `<!doctype html>
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph (Facebook/Instagram/LinkedIn) -->
+  <meta property="og:site_name" content="Ekare Sanat Akademi" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ekare Sanat Akademi | {{TITLE}} Eğitimi" />
   <meta property="og:description"
