@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CustomDatePicker from '../components/CustomDatePicker'
 import { courses } from '../data/courses'
+import Navbar from '../components/Navbar'
+import { smoothScrollTo } from '../utils/scroll'
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -15,23 +17,6 @@ function Home() {
     whatsapp: false
   })
   const [status, setStatus] = useState(null)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const menuRef = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false)
-      }
-    }
-
-    if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isMenuOpen])
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -81,85 +66,9 @@ function Home() {
     }, 5000)
   }
 
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-    
-    const targetElement = document.getElementById(targetId);
-    if (!targetElement) return;
-
-    const headerOffset = 80; // Header yüksekliği
-    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    const duration = 3000; // 3 saniye
-    let start = null;
-
-    const animation = (currentTime) => {
-      if (start === null) start = currentTime;
-      const timeElapsed = currentTime - start;
-      const progress = Math.min(timeElapsed / duration, 1);
-      
-      // easeInOutCubic (Yavaş başlar, ortada hızlanır, yavaş biter)
-      const ease = progress < 0.5 
-        ? 4 * progress * progress * progress 
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-      window.scrollTo(0, startPosition + distance * ease);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    };
-
-    requestAnimationFrame(animation);
-  };
-
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="relative border-b border-stone-200 sticky top-0 z-50 shadow-sm shadow-amber-900/5">
-        {/* Background Image & Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/images/banner.webp')" }}></div>
-        <div className="absolute inset-0 bg-white/10"></div>
-
-        <div className="relative z-10 w-full px-4 md:px-12 py-3 md:py-5 flex items-center justify-between min-h-[60px] md:min-h-[80px]">
-          {/* Hamburger Menu (Left) */}
-          <div ref={menuRef} className="z-30 flex-1 flex justify-start relative">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-xl bg-white/20 backdrop-blur-md border border-white/40 text-amber-950 hover:bg-white/40 hover:shadow-lg transition-all"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
-                {isMenuOpen ? (
-                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                ) : (
-                  <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                )}
-              </svg>
-            </button>
-
-            {/* Dropdown Menu */}
-            <div className={`absolute top-full left-0 mt-4 w-48 flex flex-col gap-2 p-3 rounded-2xl border border-white/40 bg-white/20 backdrop-blur-md shadow-xl transition-all duration-300 origin-top-left ${isMenuOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
-              <a href="/#hero" onClick={(e) => handleNavClick(e, 'hero')} className="px-4 py-2.5 rounded-xl hover:bg-white/40 text-amber-950 font-bold transition-colors">Ana Sayfa</a>
-              <a href="/#programs" onClick={(e) => handleNavClick(e, 'programs')} className="px-4 py-2.5 rounded-xl hover:bg-white/40 text-amber-950 font-bold transition-colors">Eğitimler</a>
-              <a href="/#register" onClick={(e) => handleNavClick(e, 'register')} className="px-4 py-2.5 rounded-xl hover:bg-white/40 text-amber-950 font-bold transition-colors">Bilgi Al</a>
-              <a href="/#location" onClick={(e) => handleNavClick(e, 'location')} className="px-4 py-2.5 rounded-xl hover:bg-white/40 text-amber-950 font-bold transition-colors">Konumumuz</a>
-            </div>
-          </div>
-
-          {/* Title (Center) */}
-          <div className="z-20 flex-[2] flex justify-center text-center">
-            <div className="relative inline-block mt-1 mb-2 md:mt-2 md:mb-3">
-              <span className="font-lora text-2xl sm:text-3xl md:text-4xl font-extrabold text-amber-950 tracking-wider drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)] cursor-default select-none">Ekare Sanat Akademi</span>
-              <span className="font-signature absolute -bottom-4 -right-0 sm:-bottom-5 sm:-right-4 md:-right-8 text-lg sm:text-xl md:text-2xl text-amber-800 rotate-[-8deg] drop-shadow-sm select-none cursor-default whitespace-nowrap opacity-90">By Eylül Kuşoğlu</span>
-            </div>
-          </div>
-
-          {/* Spacer (Right) to balance flex-1 on the left */}
-          <div className="flex-1 flex justify-end"></div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section id="hero" className="py-16 md:py-24 px-6 relative overflow-hidden">
@@ -171,7 +80,7 @@ function Home() {
             <p className="text-lg md:text-xl text-stone-600 mb-10 leading-relaxed cursor-default">
               Ekare Sanat Akademi'nin samimi ve davetkar atmosferinde, bedeninizin ve ruhunuzun özgürce ifade bulduğu bir yolculuğa çıkın.
             </p>
-            <a href="#register" className="inline-block bg-amber-800 text-[#fdfbf7] px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
+            <a href="#register" onClick={(e) => { e.preventDefault(); smoothScrollTo('register'); }} className="inline-block bg-amber-800 text-[#fdfbf7] px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
               Hemen Başvurun
             </a>
           </div>
@@ -192,8 +101,8 @@ function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {courses.map((program) => (
               <Link to={`/${program.slug}`} key={program.id} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group flex flex-col cursor-pointer">
-                <div className="w-full relative bg-stone-50 overflow-hidden">
-                  <img src={program.img} alt={program.altText} className="w-full h-auto object-contain max-h-[350px] group-hover:scale-105 transition duration-500" />
+                <div className="w-full relative aspect-square overflow-hidden bg-stone-100">
+                  <img src={program.img} alt={program.altText} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
                 <div className="p-6 md:p-8 flex-1">
                   <h3 className="text-2xl font-bold text-amber-800 mb-3 group-hover:text-amber-900">{program.title}</h3>

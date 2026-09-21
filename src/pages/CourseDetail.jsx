@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useParams, Navigate, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useParams, Navigate } from 'react-router-dom'
 import { courses } from '../data/courses'
 import CustomDatePicker from '../components/CustomDatePicker'
+import Navbar from '../components/Navbar'
 
 function CourseDetail() {
   const { slug } = useParams()
@@ -11,20 +12,9 @@ function CourseDetail() {
     return <Navigate to="/" />
   }
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const menuRef = useRef(null)
-
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false)
-      }
-    }
-    if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isMenuOpen])
+    window.scrollTo(0, 0)
+  }, [slug])
 
   // Form State
   const [formData, setFormData] = useState({
@@ -61,33 +51,7 @@ function CourseDetail() {
 
   return (
     <div className="min-h-screen bg-[#fdfbf7]">
-      {/* Header */}
-      <header className="relative border-b border-stone-200 sticky top-0 z-50 shadow-sm shadow-amber-900/5 bg-white">
-        <div className="relative z-10 w-full px-4 md:px-12 py-3 md:py-5 flex items-center justify-between min-h-[60px] md:min-h-[80px]">
-          <div ref={menuRef} className="z-30 flex-1 flex justify-start relative">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-xl bg-stone-100 border border-stone-200 text-amber-950 hover:bg-stone-200 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
-                {isMenuOpen ? (
-                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                ) : (
-                  <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                )}
-              </svg>
-            </button>
-            <div className={`absolute top-full left-0 mt-4 w-48 flex flex-col gap-2 p-3 rounded-2xl border border-stone-200 bg-white shadow-xl transition-all duration-300 origin-top-left ${isMenuOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
-              <Link to="/#hero" className="px-4 py-2.5 rounded-xl hover:bg-stone-100 text-amber-950 font-bold transition-colors">Ana Sayfa</Link>
-              <Link to="/#programs" className="px-4 py-2.5 rounded-xl hover:bg-stone-100 text-amber-950 font-bold transition-colors">Eğitimler</Link>
-              <Link to="/#register" className="px-4 py-2.5 rounded-xl hover:bg-stone-100 text-amber-950 font-bold transition-colors">Bilgi Al</Link>
-            </div>
-          </div>
-          <div className="z-20 flex-[2] flex justify-center text-center">
-            <Link to="/" className="relative inline-block mt-1 mb-2 md:mt-2 md:mb-3 hover:opacity-80 transition-opacity">
-              <span className="font-lora text-2xl sm:text-3xl md:text-4xl font-extrabold text-amber-950 tracking-wider">Ekare Sanat Akademi</span>
-            </Link>
-          </div>
-          <div className="flex-1 flex justify-end"></div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Course Detail Section */}
       <section className="py-16 md:py-24 px-6 relative">
