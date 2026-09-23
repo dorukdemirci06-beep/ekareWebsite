@@ -84,8 +84,8 @@ function Home() {
               Hemen Başvurun
             </a>
           </div>
-          <div className="relative flex items-center justify-center">
-            <img src="/images/yeni_sezon.webp" alt="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi İstanbul Maltepe Cevizli Dans ve Müzik Kursu Yeni Sezon Kayıtları" title="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi" width="800" height="1000" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
+          <div className="relative flex items-center justify-center w-full max-w-[480px] aspect-[4/5] mx-auto">
+            <img src="/images/yeni_sezon.webp" alt="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi İstanbul Maltepe Cevizli Dans ve Müzik Kursu Yeni Sezon Kayıtları" title="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi" width="800" height="1000" className="absolute inset-0 w-full h-full object-contain rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
           </div>
         </div>
       </section>

@@ -84,9 +84,11 @@ const template = `<!doctype html>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap">
+  </noscript>
   <meta name="apple-mobile-web-app-title" content="Ekare Sanat Akademi">
   <link rel="manifest" href="/manifest.json">
   <title>Ekare Sanat Akademi | {{TITLE}} Eğitimi</title>
@@ -113,7 +115,29 @@ const template = `<!doctype html>
 </head>
 
 <body class="bg-[#fdfbf7] text-stone-800 font-sans antialiased">
-  <div id="root"></div>
+  <div id="root">
+    <style>
+      .initial-loader {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fdfbf7;
+      }
+      .spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(146, 64, 14, 0.2);
+        border-top-color: #92400e;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+    <div class="initial-loader">
+      <div class="spinner"></div>
+    </div>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
