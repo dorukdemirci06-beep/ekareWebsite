@@ -85,7 +85,7 @@ function Home() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-            <img src="/images/yeni_sezonda.webp" alt="Ekare Sanat Akademi Yeni Sezon Kayıtları - İstanbul Maltepe Cevizli Dans ve Müzik Kursu" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" />
+            <img src="/images/yeni_sezonda.webp" alt="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi İstanbul Maltepe Cevizli Dans ve Müzik Kursu Yeni Sezon Kayıtları" title="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
           </div>
         </div>
       </section>
@@ -102,7 +102,7 @@ function Home() {
             {courses.map((program) => (
               <Link to={`/${program.slug}`} key={program.id} className="bg-white rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition overflow-hidden group flex flex-col cursor-pointer">
                 <div className="w-full relative aspect-square overflow-hidden bg-stone-100">
-                  <img src={program.img} alt={program.altText} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                  <img src={program.img} alt={program.altText} title={`${program.title} Kursu - Ekare Sanat Akademi`} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
                 </div>
                 <div className="p-6 md:p-8 flex-1">
                   <h3 className="text-2xl font-bold text-amber-800 mb-3 group-hover:text-amber-900">{program.title}</h3>

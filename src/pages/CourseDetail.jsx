@@ -68,7 +68,7 @@ function CourseDetail() {
             </a>
           </div>
           <div className="order-1 md:order-2 relative flex items-center justify-center">
-            <img src={course.img} alt={course.altText} className="w-full h-auto max-h-[500px] object-cover rounded-3xl shadow-2xl shadow-stone-400/50" />
+            <img src={course.img} alt={course.altText} title={`${course.title} Kursu - Ekare Sanat Akademi`} className="w-full h-auto max-h-[500px] object-cover rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
           </div>
         </div>
       </section>
