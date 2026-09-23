@@ -15,6 +15,8 @@ async function optimizeImages() {
 
       // Skip the newly optimized hero image so we don't double compress it
       if (file === 'yeni_sezon.webp') continue;
+      // Skip temp files
+      if (file.startsWith('temp_')) continue;
 
       const inputPath = path.join(imagesDir, file);
       const tempOutputPath = path.join(imagesDir, 'temp_' + file.replace(ext, '.webp'));
@@ -24,17 +26,19 @@ async function optimizeImages() {
       try {
         console.log(`Processing ${file}...`);
         
-        await sharp(inputPath)
+        // Read file into memory first to avoid Sharp locking the file on Windows
+        const inputBuffer = fs.readFileSync(inputPath);
+        
+        const outputBuffer = await sharp(inputBuffer)
           .resize({ width: 800, withoutEnlargement: true }) // Reduce max width to 800
           .webp({ quality: 65, effort: 6 }) // Lower quality slightly for better compression
-          .toFile(tempOutputPath);
+          .toBuffer();
 
-        const newSize = fs.statSync(tempOutputPath).size;
+        const newSize = outputBuffer.length;
         const saved = oldSize - newSize;
         
-        // Replace original with temp
-        fs.unlinkSync(inputPath);
-        fs.renameSync(tempOutputPath, finalOutputPath);
+        // Write the buffer back to the original file
+        fs.writeFileSync(inputPath, outputBuffer);
 
         if (saved > 0) {
             totalSaved += saved;
