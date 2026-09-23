@@ -2,9 +2,28 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
+const prioritizeCssPlugin = () => ({
+  name: 'prioritize-css',
+  transformIndexHtml: {
+    order: 'post',
+    handler(html) {
+      const stylesRegex = /<link[^>]*rel="stylesheet"[^>]*>/g;
+      const styles = html.match(stylesRegex);
+      if (styles) {
+        let newHtml = html.replace(stylesRegex, '');
+        const insertPos = newHtml.indexOf('<script type="module"');
+        if (insertPos !== -1) {
+          return newHtml.slice(0, insertPos) + styles.join('\n  ') + '\n  ' + newHtml.slice(insertPos);
+        }
+      }
+      return html;
+    }
+  }
+});
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), prioritizeCssPlugin()],
   build: {
     rollupOptions: {
       input: {
