@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 
-const Home = lazy(() => import('./pages/Home'))
 const CourseDetail = lazy(() => import('./pages/CourseDetail'))
 
 function App() {
