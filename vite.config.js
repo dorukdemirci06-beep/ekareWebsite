@@ -7,7 +7,7 @@ const prioritizeCssPlugin = () => ({
   transformIndexHtml: {
     order: 'post',
     handler(html) {
-      const stylesRegex = /<link[^>]*rel="stylesheet"[^>]*>/g;
+      const stylesRegex = /<link rel="stylesheet" crossorigin href="[^"]*">/g;
       const styles = html.match(stylesRegex);
       if (styles) {
         let newHtml = html.replace(stylesRegex, '');
