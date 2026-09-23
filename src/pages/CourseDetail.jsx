@@ -53,6 +53,7 @@ function CourseDetail() {
     <div className="min-h-screen bg-[#fdfbf7]">
       <Navbar />
 
+      <main>
       {/* Course Detail Section */}
       <section className="py-16 md:py-24 px-6 relative">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -98,13 +99,15 @@ function CourseDetail() {
                   <input id="course_branch" required type="text" name="branch" value={formData.branch} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" />
                 </div>
               </div>
-              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#1EBE5A] text-white py-4 rounded-xl text-lg font-bold hover:bg-[#128C7E] transition shadow-lg mt-4 flex items-center justify-center gap-3">
+              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#128C7E] text-white py-4 rounded-xl text-lg font-bold hover:bg-[#075E54] transition shadow-lg mt-4 flex items-center justify-center gap-3">
                 WhatsApp'tan Bilgi Al
               </button>
             </form>
           </div>
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-300 py-12 border-t border-stone-800">
