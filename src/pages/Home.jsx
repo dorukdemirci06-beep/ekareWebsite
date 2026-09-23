@@ -73,16 +73,18 @@ function Home() {
       {/* Hero Section */}
       <section id="hero" className="py-16 md:py-24 px-6 relative overflow-hidden">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-          <div>
+          <div className="min-h-[320px] md:min-h-0 flex flex-col justify-start md:justify-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-amber-900 leading-tight cursor-default select-none">
               Dans <br className="hidden lg:block" /> Müzik <br className="hidden lg:block" /> Bale
             </h1>
             <p className="text-lg md:text-xl text-stone-600 mb-10 leading-relaxed cursor-default">
               Ekare Sanat Akademi'nin samimi ve davetkar atmosferinde, bedeninizin ve ruhunuzun özgürce ifade bulduğu bir yolculuğa çıkın.
             </p>
-            <a href="#register" onClick={(e) => { e.preventDefault(); smoothScrollTo('register'); }} className="inline-block bg-amber-800 text-[#fdfbf7] px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
-              Hemen Başvurun
-            </a>
+            <div>
+              <a href="#register" onClick={(e) => { e.preventDefault(); smoothScrollTo('register'); }} className="inline-block bg-amber-800 text-[#fdfbf7] px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
+                Hemen Başvurun
+              </a>
+            </div>
           </div>
           <div className="relative flex items-center justify-center w-full max-w-[480px] aspect-[4/5] mx-auto">
             <img src="/images/yeni_sezon.webp" alt="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi İstanbul Maltepe Cevizli Dans ve Müzik Kursu Yeni Sezon Kayıtları" title="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi" width="800" height="1000" className="absolute inset-0 w-full h-full object-contain rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
