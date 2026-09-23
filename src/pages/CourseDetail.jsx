@@ -86,19 +86,19 @@ function CourseDetail() {
             {status === 'success' && <div className="mb-8 p-4 bg-green-50 text-green-800 rounded-xl border border-green-200 text-center">WhatsApp üzerinden bilgi almak için yönlendiriliyorsunuz...</div>}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <div><label className="block text-sm font-medium text-stone-700 mb-2">Öğrenci Adı *</label><input required type="text" name="studentName" value={formData.studentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
-                <div><label className="block text-sm font-medium text-stone-700 mb-2">Öğrenci Soyadı *</label><input required type="text" name="studentSurname" value={formData.studentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
-                <div><label className="block text-sm font-medium text-stone-700 mb-2">Veli Adı (İsteğe Bağlı)</label><input type="text" name="parentName" value={formData.parentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
-                <div><label className="block text-sm font-medium text-stone-700 mb-2">Veli Soyadı (İsteğe Bağlı)</label><input type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
+                <div><label htmlFor="course_studentName" className="block text-sm font-medium text-stone-700 mb-2">Öğrenci Adı *</label><input id="course_studentName" required type="text" name="studentName" value={formData.studentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
+                <div><label htmlFor="course_studentSurname" className="block text-sm font-medium text-stone-700 mb-2">Öğrenci Soyadı *</label><input id="course_studentSurname" required type="text" name="studentSurname" value={formData.studentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
+                <div><label htmlFor="course_parentName" className="block text-sm font-medium text-stone-700 mb-2">Veli Adı (İsteğe Bağlı)</label><input id="course_parentName" type="text" name="parentName" value={formData.parentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
+                <div><label htmlFor="course_parentSurname" className="block text-sm font-medium text-stone-700 mb-2">Veli Soyadı (İsteğe Bağlı)</label><input id="course_parentSurname" type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
                 <div className="md:col-span-2">
                   <CustomDatePicker name="birthDate" label="Doğum Tarihi *" value={formData.birthDate} onChange={handleInputChange} />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-stone-700 mb-2">İlgilenilen Branş *</label>
-                  <input required type="text" name="branch" value={formData.branch} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" />
+                  <label htmlFor="course_branch" className="block text-sm font-medium text-stone-700 mb-2">İlgilenilen Branş *</label>
+                  <input id="course_branch" required type="text" name="branch" value={formData.branch} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" />
                 </div>
               </div>
-              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#25D366] text-white py-4 rounded-xl text-lg font-bold hover:bg-[#128C7E] transition shadow-lg mt-4 flex items-center justify-center gap-3">
+              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#1EBE5A] text-white py-4 rounded-xl text-lg font-bold hover:bg-[#128C7E] transition shadow-lg mt-4 flex items-center justify-center gap-3">
                 WhatsApp'tan Bilgi Al
               </button>
             </form>
@@ -107,7 +107,7 @@ function CourseDetail() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+      <footer className="bg-stone-900 text-stone-300 py-12 border-t border-stone-800">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
           <div className="flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center text-lg">
             <a href="mailto:ekaresanat@gmail.com" className="hover:text-[#fdfbf7] transition-colors">ekaresanat@gmail.com</a>

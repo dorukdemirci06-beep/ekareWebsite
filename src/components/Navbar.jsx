@@ -42,6 +42,7 @@ function Navbar() {
         {/* Hamburger Menu (Left) */}
         <div ref={menuRef} className="z-30 flex-1 flex justify-start relative">
           <button
+            aria-label="Menüyü Aç/Kapat"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 rounded-xl bg-white/20 backdrop-blur-md border border-white/40 text-amber-950 hover:bg-white/40 hover:shadow-lg transition-all"
           >
