@@ -85,7 +85,7 @@ function Home() {
             </a>
           </div>
           <div className="relative flex items-center justify-center">
-            <img src="/images/yeni_sezonda.webp" alt="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi İstanbul Maltepe Cevizli Dans ve Müzik Kursu Yeni Sezon Kayıtları" title="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
+            <img src="/images/yeni_sezon.webp" alt="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi İstanbul Maltepe Cevizli Dans ve Müzik Kursu Yeni Sezon Kayıtları" title="Yeni Sezonda Sizlerleyiz - Ekare Sanat Akademi" className="h-auto max-h-[600px] max-w-full rounded-3xl shadow-2xl shadow-stone-400/50" loading="eager" />
           </div>
         </div>
       </section>
