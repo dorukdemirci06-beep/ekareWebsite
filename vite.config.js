@@ -2,28 +2,33 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
-const prioritizeCssPlugin = () => ({
-  name: 'prioritize-css',
-  transformIndexHtml: {
-    order: 'post',
-    handler(html) {
-      const stylesRegex = /<link rel="stylesheet" crossorigin href="[^"]*">/g;
-      const styles = html.match(stylesRegex);
-      if (styles) {
-        let newHtml = html.replace(stylesRegex, '');
-        const insertPos = newHtml.indexOf('<script type="module"');
-        if (insertPos !== -1) {
-          return newHtml.slice(0, insertPos) + styles.join('\n  ') + '\n  ' + newHtml.slice(insertPos);
-        }
+const inlineCssPlugin = () => ({
+  name: 'inline-css',
+  enforce: 'post',
+  generateBundle(options, bundle) {
+    let cssCode = '';
+    for (const key in bundle) {
+      if (key.endsWith('.css') && bundle[key].type === 'asset') {
+        cssCode += bundle[key].source;
+        // Optionally delete the css file from the bundle to save space, but keeping it is safer.
       }
-      return html;
+    }
+    if (!cssCode) return;
+
+    for (const key in bundle) {
+      if (key.endsWith('.html') && bundle[key].type === 'asset') {
+        let html = bundle[key].source;
+        html = html.replace(/<link[^>]*rel="stylesheet"[^>]*>/gi, '');
+        html = html.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+        bundle[key].source = html;
+      }
     }
   }
 });
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), prioritizeCssPlugin()],
+  plugins: [react(), inlineCssPlugin()],
   build: {
     rollupOptions: {
       input: {
