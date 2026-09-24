@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { courses } from '../data/courses'
-import CustomDatePicker from '../components/CustomDatePicker'
 import Navbar from '../components/Navbar'
+
+const CustomDatePicker = lazy(() => import('../components/CustomDatePicker'))
 
 function CourseDetail() {
   const { slug } = useParams()
@@ -92,7 +93,9 @@ function CourseDetail() {
                 <div><label htmlFor="course_parentName" className="block text-sm font-medium text-stone-700 mb-2">Veli Adı (İsteğe Bağlı)</label><input id="course_parentName" type="text" name="parentName" value={formData.parentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
                 <div><label htmlFor="course_parentSurname" className="block text-sm font-medium text-stone-700 mb-2">Veli Soyadı (İsteğe Bağlı)</label><input id="course_parentSurname" type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
                 <div className="md:col-span-2">
-                  <CustomDatePicker name="birthDate" label="Doğum Tarihi *" value={formData.birthDate} onChange={handleInputChange} />
+                  <Suspense fallback={<div className="h-12 bg-stone-100 rounded-xl animate-pulse"></div>}>
+                    <CustomDatePicker name="birthDate" label="Doğum Tarihi *" value={formData.birthDate} onChange={handleInputChange} />
+                  </Suspense>
                 </div>
                 <div className="md:col-span-2">
                   <label htmlFor="course_branch" className="block text-sm font-medium text-stone-700 mb-2">İlgilenilen Branş *</label>

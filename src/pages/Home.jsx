@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
-import CustomDatePicker from '../components/CustomDatePicker'
 import { courses } from '../data/courses'
 import Navbar from '../components/Navbar'
 import { smoothScrollTo } from '../utils/scroll'
+
+const CustomDatePicker = lazy(() => import('../components/CustomDatePicker'))
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -160,12 +161,14 @@ function Home() {
                   <input id="home_parentSurname" type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 outline-none transition" />
                 </div>
                 <div className="md:col-span-2">
-                  <CustomDatePicker
-                    name="birthDate"
-                    label="Doğum Tarihi *"
-                    value={formData.birthDate}
-                    onChange={handleInputChange}
-                  />
+                  <Suspense fallback={<div className="h-12 bg-stone-100 rounded-xl animate-pulse"></div>}>
+                    <CustomDatePicker
+                      name="birthDate"
+                      label="Doğum Tarihi *"
+                      value={formData.birthDate}
+                      onChange={handleInputChange}
+                    />
+                  </Suspense>
                 </div>
                 <div className="md:col-span-2">
                   <label htmlFor="home_branch" className="block text-sm font-medium text-stone-700 mb-2">İlgilenilen Branş *</label>
