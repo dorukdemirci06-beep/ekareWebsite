@@ -1,9 +1,7 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { courses } from '../data/courses'
-import Navbar from '../components/Navbar'
-
-const CustomDatePicker = lazy(() => import('../components/CustomDatePicker'))
+import CustomDatePicker from '../components/CustomDatePicker'
 
 function CourseDetail() {
   const { slug } = useParams()
@@ -52,8 +50,6 @@ function CourseDetail() {
 
   return (
     <div className="min-h-screen bg-[#fdfbf7]">
-      <Navbar />
-
       <main>
       {/* Course Detail Section */}
       <section className="py-16 md:py-24 px-6 relative">
@@ -93,9 +89,7 @@ function CourseDetail() {
                 <div><label htmlFor="course_parentName" className="block text-sm font-medium text-stone-700 mb-2">Veli Adı (İsteğe Bağlı)</label><input id="course_parentName" type="text" name="parentName" value={formData.parentName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
                 <div><label htmlFor="course_parentSurname" className="block text-sm font-medium text-stone-700 mb-2">Veli Soyadı (İsteğe Bağlı)</label><input id="course_parentSurname" type="text" name="parentSurname" value={formData.parentSurname} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-800 outline-none transition" /></div>
                 <div className="md:col-span-2">
-                  <Suspense fallback={<div className="h-12 bg-stone-100 rounded-xl animate-pulse"></div>}>
-                    <CustomDatePicker name="birthDate" label="Doğum Tarihi *" value={formData.birthDate} onChange={handleInputChange} />
-                  </Suspense>
+                  <CustomDatePicker name="birthDate" label="Doğum Tarihi *" value={formData.birthDate} onChange={handleInputChange} />
                 </div>
                 <div className="md:col-span-2">
                   <label htmlFor="course_branch" className="block text-sm font-medium text-stone-700 mb-2">İlgilenilen Branş *</label>
