@@ -18,7 +18,10 @@ const inlineCssPlugin = () => ({
     for (const key in bundle) {
       if (key.endsWith('.html') && bundle[key].type === 'asset') {
         let html = bundle[key].source;
-        html = html.replace(/<link[^>]*rel="stylesheet"[^>]*>/gi, '');
+        html = html.replace(/<link[^>]*rel="stylesheet"[^>]*>/gi, (match) => {
+          if (match.includes('http')) return match;
+          return '';
+        });
         html = html.replace('</head>', `<style>${cssCode}</style>\n</head>`);
         bundle[key].source = html;
       }
