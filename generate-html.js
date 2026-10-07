@@ -66,6 +66,7 @@ const template = `<!doctype html>
     content="ekare, ekare sanat, ekare akademi, sanat akademi, {{TITLE}}, {{TITLE}} kursu, maltepe {{TITLE}} kursu, istanbul dans müzik" />
   <meta name="author" content="Ekare Sanat Akademi" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ekaresanat.com/{{SLUG}}" />
 
   <!-- Open Graph (Facebook/Instagram/LinkedIn) -->
   <meta property="og:site_name" content="Ekare Sanat Akademi" />
