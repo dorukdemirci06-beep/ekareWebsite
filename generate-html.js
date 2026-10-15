@@ -121,9 +121,12 @@ const template = `<!doctype html>
       .initial-loader {
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: #fdfbf7;
+        padding: 24px;
+        text-align: center;
       }
       .spinner {
         width: 48px;
@@ -132,13 +135,25 @@ const template = `<!doctype html>
         border-top-color: #92400e;
         border-radius: 50%;
         animation: spin 1s linear infinite;
+        margin-bottom: 20px;
       }
       @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
     <div class="initial-loader">
       <div class="spinner"></div>
+      <h1 style="color: #78350f; font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; font-family: Lora, serif;">Ekare Sanat Akademi | {{TITLE}} Eğitimi</h1>
+      <p style="color: #57534e; max-width: 600px; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">{{DESC}}</p>
+      <nav style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+        <a href="/" style="color: #92400e; text-decoration: none; font-weight: 600;">&larr; Ana Sayfa</a>
+      </nav>
     </div>
   </div>
+  <noscript>
+    <div style="padding: 20px; text-align: center; background: #fff;">
+      <p>Bu siteyi tam deneyimlemek için lütfen tarayıcınızda JavaScript'i etkinleştirin.</p>
+      <a href="/" style="color: #92400e;">Ana Sayfa</a>
+    </div>
+  </noscript>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

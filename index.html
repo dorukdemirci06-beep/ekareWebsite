@@ -79,9 +79,12 @@
       .initial-loader {
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: #fdfbf7;
+        padding: 24px;
+        text-align: center;
       }
 
       .spinner {
@@ -91,6 +94,7 @@
         border-top-color: #92400e;
         border-radius: 50%;
         animation: spin 1s linear infinite;
+        margin-bottom: 20px;
       }
 
       @keyframes spin {
@@ -101,8 +105,28 @@
     </style>
     <div class="initial-loader">
       <div class="spinner"></div>
+      <h1 style="color: #78350f; font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; font-family: Lora, serif;">Ekare Sanat Akademi</h1>
+      <p style="color: #57534e; max-width: 650px; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">İstanbul Maltepe Cevizli'de profesyonel eğitmenler eşliğinde Dans, Müzik ve Bale eğitimleri.</p>
+      <nav style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; font-size: 0.95rem;" aria-label="Eğitimlerimiz">
+        <a href="/bale-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">Bale Kursu</a> &bull;
+        <a href="/salsa-ve-bachata-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">Salsa &amp; Bachata</a> &bull;
+        <a href="/k-pop-dans-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">K-Pop Dans</a> &bull;
+        <a href="/hip-hop-dans-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">Hip Hop Dans</a> &bull;
+        <a href="/piyano-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">Piyano</a> &bull;
+        <a href="/keman-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">Keman</a> &bull;
+        <a href="/gitar-kursu" style="color: #92400e; text-decoration: none; font-weight: 600;">Gitar</a> &bull;
+        <a href="/san-dersi" style="color: #92400e; text-decoration: none; font-weight: 600;">Şan Dersi</a>
+      </nav>
     </div>
   </div>
+  <noscript>
+    <div style="padding: 20px; text-align: center; background: #fff;">
+      <p>Bu siteyi tam deneyimlemek için lütfen tarayıcınızda JavaScript'i etkinleştirin.</p>
+      <a href="/bale-kursu" style="color: #92400e; margin: 0 8px;">Bale Kursu</a>
+      <a href="/piyano-kursu" style="color: #92400e; margin: 0 8px;">Piyano Kursu</a>
+      <a href="/gitar-kursu" style="color: #92400e; margin: 0 8px;">Gitar Kursu</a>
+    </div>
+  </noscript>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
